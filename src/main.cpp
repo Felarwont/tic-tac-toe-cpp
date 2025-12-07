@@ -1,5 +1,10 @@
-
+#include <iostream>
+#include <Board.hpp>
 
 int main() {
-    return 0;
+    Board board;
+
+    board.display();
+
+    std::cout << board.is_full() << std::endl;
 }
