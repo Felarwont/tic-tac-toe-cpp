@@ -8,4 +8,5 @@ include_directories(include)
 
 add_executable(TicTacToe
     src/Board.cpp
-    src/main.cpp)
+    src/main.cpp
+    src/Game.cpp)

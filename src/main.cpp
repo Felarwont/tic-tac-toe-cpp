@@ -1,16 +1,21 @@
+#include <Game.hpp>
 #include <iostream>
-#include <Board.hpp>
-#include <Player.hpp>
 
 int main() {
-    Board board;
-    Player player{"MyName", 'Z'};
+    std::string name1, name2;
+    char symbol1, symbol2;
+    std::cout << "Enter the nickname of the first player: ";
+    std::cin >> name1;
+    std::cout << "Enter the symbol of the first player: ";
+    std::cin >> symbol1;
+    std::cout << "Enter the nickname of the second player: ";
+    std::cin >> name2;
+    std::cout << "Enter the symbol of the second player: ";
+    std::cin >> symbol2;
+    Player player1{name1, symbol1};
+    Player player2{name2, symbol2};
 
-    board.display();
-    for (int i = 1; i <= 9; i++)
-        board.set_cell(i, player.symbol);
-    board.display();
+    Game game(player1, player2);
 
-    std::cout << board.is_full() << std::endl;
-    std::cout << "nickname: " << player.nickname << " symbol: " << player.symbol << std::endl;
+    game.run();
 }
