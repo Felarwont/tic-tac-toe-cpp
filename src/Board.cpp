@@ -6,29 +6,26 @@ Board::Board() : field{'1', '2', '3', '4', '5', '6', '7', '8', '9'} {}
 
 void Board::display() {
     for (int i = 0; i < 9; i++) {
-            std::cout << field[i] << "   ";
-            if ((i + 1) % 3 == 0) {
-                std::cout << '\n';
-            }
-        }
+            std::cout << field[i] << (((i + 1) % 3 == 0) ? "\n" : "   ");
+    }
 }
 
-void Board::make_mark(int index, Player& player) {
-    if (index < 0 || index > 8) {
-        throw std::out_of_range("Index out of range 0-8");
+void Board::set_cell(int index, char symbol) {
+    if (index < 1 || index > 9) {
+        throw std::out_of_range("Index out of range 1-9");
     }
-    field[index] = player.symbol;
+    field[index - 1] = symbol;
 }
 
 bool Board::is_occupied(int index) {
-    if (index < 0 || index > 8) {
-        throw std::out_of_range("Index out of range 0-8");
+    if (index < 1 || index > 9) {
+        throw std::out_of_range("Index out of range 1-9");
     }
-    return !std::isdigit(field[index]);
+    return !std::isdigit(field[index - 1]);
 }
 
 bool Board::is_full() {
-    for (int i = 0; i < 9; i++) {
+    for (int i = 1; i <= 9; i++) {
         if (!is_occupied(i)) {
             return false;
         }
