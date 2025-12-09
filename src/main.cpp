@@ -12,6 +12,7 @@ int main() {
     std::cin >> name2;
     std::cout << "Enter the symbol of the second player: ";
     std::cin >> symbol2;
+
     Player player1{name1, symbol1};
     Player player2{name2, symbol2};
 
